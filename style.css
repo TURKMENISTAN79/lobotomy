@@ -1,0 +1,401 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+#logo {
+  height: 360px;
+  width: 100%;
+  animation: stretch 0.3s infinite;
+}
+
+#header-logo {
+  height: 50px; /* Adjust height as needed */
+  margin-right: 10px; /* Space between logo and heading */
+}
+
+header {
+  font-size: 15px;
+  font-family: arial black;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 10px;
+}
+
+header ul {
+  display: grid;
+  list-style-type: none;
+}
+
+header li {
+  margin-right: 10px;
+  display: inline;
+}
+
+#searchform {
+  margin-left: auto;
+}
+
+#General,
+#about,
+#MTG,
+#reviews {
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none; /* Remove underline */
+}
+
+#General:hover,
+#about:hover,
+#MTG:hover,
+#reviews:hover {
+  color: #ff69b4;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+input#s {
+  width: 150px;
+  margin-top: 23px;
+  border-radius: 2px;
+  font-size: 14px;
+  height: 22px;
+  line-height: 1.2em;
+  padding: 4px 10px 4px 28px;
+}
+
+#camera {
+  margin-top: 10px;
+  height: 150px;
+  width: 150px;
+}
+
+#edichka {
+  font-family: Brush Script MT, cursive;
+}
+
+p {
+  width: 70%;
+  margin: 0 auto;
+  color: black;
+  font-size: 20pt;
+  text-align: center;
+}
+
+.right {
+  width: 300px;
+  float: right;
+}
+
+.listalki {
+  display: flex;
+  gap: 10px;
+  margin-left: 1670px;
+  margin-top: 10px;
+}
+
+#aperture {
+  height: 250px;
+  width: 500px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Centering elements */
+.info {
+  display: flex;
+  background-color: black;
+  justify-content: center;
+}
+
+#osn {
+  display: flex;
+  list-style-type: none;
+  gap: 20px; /* Увеличиваем расстояние между элементами */
+  padding: 0;
+}
+
+#osn li a {
+  color: white;
+  text-decoration: none; /* Remove underline */
+}
+
+/* Slideshow container */
+#slideshow {
+  position: relative;
+  width: 500px;
+  margin: 20px auto;
+}
+
+.mySlides {
+  display: none;
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Scroll buttons */
+.scroll-button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#scroll-down {
+  right: 20px;
+  bottom: 20px;
+}
+
+#scroll-up {
+  right: 20px;
+  bottom: 80px;
+}
+
+.scroll-button:hover {
+  background-color: #555;
+}
+
+footer {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Модальный контент стилизация */
+.modal-content {
+  background-color: #fff;
+  /* Белый фон */
+  padding: 20px;
+  /* Поля вокруг текста */
+  border-radius: 10px;
+  /* Закругленные углы */
+  max-width: 300px;
+  /* Максимальная ширина контента */
+  margin: 0 auto;
+  /* Автоматическое выравнивание по центру */
+}
+
+/* Центрирование текста внутри модального окна */
+.modal-content p {
+  margin: 0 auto;
+  /* Автоматическое выравнивание по центру */
+  padding: 0 auto;
+  /* Центрирование текста */
+  text-align: center;
+}
+
+/* Highlighting */
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Menu section */
+.menu-frame {
+  border: 2px solid #000;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  text-align: center; /* Center align the text */
+}
+
+.menu-frame h2 {
+  text-align: center;
+}
+
+.menu-item p {
+  margin: 10px 0;
+}
+
+.menu-item hr {
+  border: none;
+  border-top: 1px solid #000;
+}
+
+/* Reviews section */
+#reviews-section {
+  border: 2px solid #000;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+}
+
+#reviews-section h2, #reviews-section h3 {
+  text-align: center;
+}
+
+#reviews-list {
+  margin-bottom: 20px;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#review-text {
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+#submit-review {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#submit-review:hover {
+  background-color: #555;
+}
+
+.stars {
+  text-align: center;
+  font-size: 20px;
+  color: #FFD700; /* Золотой цвет для звезд */
+}
+
+#inside h2 {
+  text-align: center;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.quote {
+  text-align: center;
+  width: 100%;
+}
+
+
+/* Add this CSS to style the language buttons */
+#language-buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+#language-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+#language-buttons button:hover {
+    background-color: #E72E81;
+}
+
