@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="et">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoegaze Kohvik</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Для браузеров с поддержкой множественных размеров -->
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-64x64.png" sizes="64x64">
 </head>
+
 <body>
     <header>
         <img src="hhrs.png" alt="logo" id="header-logo">
-        <h1>SHOEGAZE KOHVIK</h1>
+        <h1 style="color: black">SHOEGAZE KOHVIK</h1>
         <p class="quote" id="quote">"Feel the vibe, it's always alive" - Slowdive, "Souvlaki Space Station"</p>
         <form action="" id="searchform" method="get">
             <input id="s" type="text" name="s" placeholder="Otsi">
@@ -20,28 +26,30 @@
             <button id="en-btn">EN</button>
         </div>
     </header>
-    
+
     <img src="сайттт.png" alt="logo" id="logo">
     <nav>
         <div class="info">
             <ul id="osn">
-                <li><a href="#" id="General">Sees</a></li>
-                <li><a href="#" id="about">Meist</a></li>
-                <li><a href="#" id="MTG">Menüü</a></li>
-                <li><a href="#" id="reviews">Arvustused</a></li>
+                <li><a href="#" class="nav-button" id="General">Sees</a></li>
+                <li><a href="#" class="nav-button" id="about">Meist</a></li>
+                <li><a href="#" class="nav-button" id="MTG">Menüü</a></li>
+                <li><a href="#" class="nav-button" id="reviews">Arvustused</a></li>
             </ul>
         </div>
     </nav>
-    
+
     <main>
+        <br><br>
         <section id="inside" class="content">
-            <h2 id="section-sees">Sees</h2>
+            <h2 id="section-sees" style="color: black">Sees</h2>
             <article>
                 <div id="slideshow">
                     <img src="1.jpg" alt="aperture" class="mySlides">
                     <img src="2.jpg" alt="camera" class="mySlides">
                     <img src="3.jpg" alt="camera" class="mySlides">
                 </div>
+                <br><br>
                 <p id="we-offer">
                     <b>Pakume:</b> <br><br>
                     Hubast atmosfääri, kus saab lõõgastuda ja unustada mured lemmikmuusika saatel.
@@ -51,38 +59,45 @@
                     Teemaõhtud, mis on pühendatud shoegaze ajaloole ja kultuurile.
                     Võimalus kohtuda mõttekaaslastega ja leida uusi sõpru.
                 </p>
+                <br><br>
             </article>
         </section>
     </main>
-    
+
     <button id="scroll-up" class="scroll-button">↑</button>
     <button id="scroll-down" class="scroll-button">↓</button>
-    
+
     <section id="bottom">
         <div id="menu" class="menu-frame">
             <h2>Menüü</h2>
             <div class="menu-item">
-                <p id="menu-item-1">Sugar for the Pill Brownie - Šokolaadi pähkli Brownie, mis on pühendatud laulule "Sugar for the Pill" bändi Slowdive</p>
+                <p id="menu-item-1">Sugar for the Pill Brownie - Šokolaadi pähkli Brownie, mis on pühendatud laulule
+                    "Sugar for the Pill" bändi Slowdive</p>
                 <hr>
-                <p id="menu-item-2">My Bloody Latte - Klassikaline latte rikkaliku espressomaitsega, mis meenutab ikoonilist bändi My Bloody Valentine</p>
+                <p id="menu-item-2">My Bloody Latte - Klassikaline latte rikkaliku espressomaitsega, mis meenutab
+                    ikoonilist bändi My Bloody Valentine</p>
                 <hr>
-                <p id="menu-item-3">Swervedriver Sandwich - Kana ja avokaado võileib, kosutava maitsega nagu "Swervedriveri" muusika</p>
+                <p id="menu-item-3">Swervedriver Sandwich - Kana ja avokaado võileib, kosutava maitsega nagu
+                    "Swervedriveri" muusika</p>
                 <hr>
-                <p id="menu-item-4">Loveless Mocha - Chocolate Mocha on sama magus ja ettearvamatu kui "Loveless" album My Bloody Valentine</p>
+                <p id="menu-item-4">Loveless Mocha - Chocolate Mocha on sama magus ja ettearvamatu kui "Loveless" album
+                    My Bloody Valentine</p>
             </div>
         </div>
-        
+        <br><br>
         <div id="reviews-section">
             <h2>Arvustused</h2>
             <div id="reviews-list">
                 <div class="review-item">
-                    <p>"Shoegaze Kohvik on suurepärane koht, kus lõõgastuda ja nautida head muusikat. Kohv on alati maitsev ja personal on väga sõbralik!"</p>
+                    <p>"Shoegaze Kohvik on suurepärane koht, kus lõõgastuda ja nautida head muusikat. Kohv on alati
+                        maitsev ja personal on väga sõbralik!"</p>
                     <div class="stars">
                         ★★★★★
                     </div>
                 </div>
                 <div class="review-item">
-                    <p>"Väga mõnus atmosfäär ja suurepärane menüü! Ainult 4 tärni, kuna teenindus võiks olla veidi kiirem."</p>
+                    <p>"Väga mõnus atmosfäär ja suurepärane menüü! Ainult 4 tärni, kuna teenindus võiks olla veidi
+                        kiirem."</p>
                     <div class="stars">
                         ★★★★☆
                     </div>
@@ -92,19 +107,21 @@
                 <h3>Jäta oma arvustus:</h3>
                 <textarea id="review-text" rows="4" placeholder="Kirjutage oma arvustus..."></textarea>
                 <button type="button" id="submit-review">Saada</button>
-            </form>          
+            </form>
         </div>
-        
+
         <div id="search-modal" class="modal">
             <div class="modal-content">
                 <span class="close-button">&times;</span>
                 <p id="modal-message">Midagi ei leitud</p>
             </div>
         </div>
-        
+        <br><br>
         <p>IVKHK NPMM23 Vladislav Kossorotov</p>
+        <br><br>
     </section>
-    
+
     <script src="script.js"></script>
-</body>  
+</body>
+
 </html>

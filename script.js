@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function() {
             reviews: "Arvustused"
         },
         ru: {
-            quote: "\"Ощути вибрацию, она всегда жива\" - Slowdive, \"Souvlaki Space Station\"",
+            quote: "\"почувствуй атмосферу, она всегда жива\" - Slowdive, \"Souvlaki Space Station\"",
             sees: "Внутри",
             weOffer: `
                 <b>Мы предлагаем:</b> <br><br>
@@ -295,4 +295,3 @@ document.addEventListener("DOMContentLoaded", function() {
         switchLanguage("en");
     });
 });
-
