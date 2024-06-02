@@ -1,24 +1,17 @@
-html {
+html, body {
   height: 100%;
   width: 100%;
-}
-
-#logo {
-  height: 360px;
-  width: 100%;
-  animation: stretch 0.3s infinite;
-}
-
-#header-logo {
-  height: 50px; /* Adjust height as needed */
-  margin-right: 10px; /* Space between logo and heading */
+  margin: 0;
+  padding: 0;
+  background-color: #B0C4DE;
+  color: white;
 }
 
 header {
   font-size: 15px;
-  font-family: arial black;
+  font-family: Arial Black, sans-serif;
   display: flex;
-  align-items: center; /* Align items vertically */
+  align-items: center;
   gap: 10px;
 }
 
@@ -36,27 +29,24 @@ header li {
   margin-left: auto;
 }
 
-#General,
-#about,
-#MTG,
-#reviews {
+#General, #about, #MTG, #reviews {
   color: white;
   font-size: 1.2em;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
 }
 
-#General:hover,
-#about:hover,
-#MTG:hover,
-#reviews:hover {
+#General:hover, #about:hover, #MTG:hover, #reviews:hover {
   color: #ff69b4;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #B0C4DE; /* Мягкий серо-голубой фон */
-  color: white; /* Белый текст на ярком фоне */
+#logo {
+  width: 100%;
+  animation: stretch 0.3s infinite;
+}
+
+#header-logo {
+  height: 50px;
+  margin-right: 10px;
 }
 
 input#s {
@@ -65,7 +55,6 @@ input#s {
   border-radius: 2px;
   font-size: 14px;
   height: 22px;
-  line-height: 1.2em;
   padding: 4px 10px 4px 28px;
 }
 
@@ -75,10 +64,8 @@ input#s {
   width: 150px;
 }
 
-
-
 #edichka {
-  font-family: Brush Script MT, cursive;
+  font-family: 'Brush Script MT', cursive;
 }
 
 p {
@@ -97,19 +84,16 @@ p {
 .listalki {
   display: flex;
   gap: 10px;
-  margin-left: 1670px;
+  margin-left: auto;
   margin-top: 10px;
 }
 
 #aperture {
   height: 250px;
   width: 500px;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto;
 }
 
-/* Centering elements */
 .info {
   display: flex;
   background-color: black;
@@ -119,7 +103,7 @@ p {
 #osn {
   display: flex;
   list-style-type: none;
-  gap: 20px; /* Увеличиваем расстояние между элементами */
+  gap: 20px;
   padding: 0;
 }
 
@@ -129,39 +113,16 @@ p {
 }
 
 nav .info ul #osn li {
-  margin-right: 10px; /* Уменьшаем отступ между элементами */
+  margin-right: 10px;
 }
 
-
-/* Добавляем эффект увеличения рамки при наведении на навигационные ссылки */
 nav .info ul li {
   display: inline-block;
   margin-right: 10px;
   position: relative;
 }
 
-nav .info ul li::before {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-nav .info ul li:hover::before {
-  transform: scaleX(1);
-}
-
-nav .info ul li a {
-  color: white;
-  text-decoration: none;
-  position: relative;
-}
-
+nav .info ul li::before,
 nav .info ul li a::after {
   content: '';
   position: absolute;
@@ -169,16 +130,28 @@ nav .info ul li a::after {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #ff69b4;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
+nav .info ul li::before {
+  background-color: white;
+}
+
+nav .info ul li:hover::before,
 nav .info ul li a:hover::after {
   transform: scaleX(1);
 }
 
-/* Slideshow container */
+nav .info ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav .info ul li a::after {
+  background-color: #ff69b4;
+}
+
 #slideshow {
   position: relative;
   width: 500px;
@@ -190,7 +163,6 @@ nav .info ul li a:hover::after {
   width: 100%;
 }
 
-/* Next & previous buttons */
 .prev,
 .next {
   cursor: pointer;
@@ -217,7 +189,6 @@ nav .info ul li a:hover::after {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Scroll buttons */
 .scroll-button {
   position: fixed;
   width: 50px;
@@ -253,20 +224,6 @@ footer {
   margin: 20px 0;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 .close-button {
   color: #aaa;
   float: right;
@@ -281,45 +238,29 @@ footer {
   cursor: pointer;
 }
 
-/* Модальный контент стилизация */
 .modal-content {
   background-color: #fff;
-  /* Белый фон */
-  padding: 20px;
-  /* Поля вокруг текста */
+  padding: 40px;
   border-radius: 10px;
-  /* Закругленные углы */
   max-width: 300px;
-  /* Максимальная ширина контента */
   margin: 0 auto;
-  /* Автоматическое выравнивание по центру */
-}
-
-/* Центрирование текста внутри модального окна */
-.modal-content p {
-  margin: 0 auto;
-  /* Автоматическое выравнивание по центру */
-  padding: 0 auto;
-  /* Центрирование текста */
   text-align: center;
 }
 
-/* Highlighting */
 .highlight {
   background-color: yellow;
   font-weight: bold;
 }
 
-/* Menu section */
 .menu-frame {
-  border: 2px solid #FFC0CB; /* Пастельный розовый */
+  border: 2px solid #FFC0CB;
   border-radius: 15px;
   padding: 20px;
   max-width: 600px;
   margin: 20px auto;
-  background-color: #E6E6FA; /* Лавандовый */
-  color: black; /* Чёрный текст на ярком фоне */
-  text-align: center; /* Center align the text */
+  background-color: #E6E6FA;
+  color: black;
+  text-align: center;
 }
 
 .menu-frame h2 {
@@ -335,15 +276,14 @@ footer {
   border-top: 1px solid #000;
 }
 
-/* Reviews section */
 #reviews-section {
-  border: 2px solid #FFC0CB; /* Пастельный розовый */
+  border: 2px solid #FFC0CB;
   border-radius: 15px;
   padding: 20px;
   max-width: 600px;
   margin: 20px auto;
-  background-color: #E6E6FA; /* Лавандовый */
-  color: black; /* Чёрный текст на ярком фоне */
+  background-color: #E6E6FA;
+  color: black;
 }
 
 #reviews-section h2, #reviews-section h3 {
@@ -384,13 +324,12 @@ footer {
 .stars {
   text-align: center;
   font-size: 20px;
-  color: #FFD700; /* Золотой цвет для звезд */
+  color: #FFD700;
 }
 
 #inside h2 {
   text-align: center;
 }
-
 
 .modal {
   display: none;
@@ -402,31 +341,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 300px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .quote {
@@ -434,26 +349,32 @@ footer {
   width: 100%;
 }
 
-/* Add this CSS to style the language buttons */
 #language-buttons {
-    margin-left: auto;
-    display: flex;
-    gap: 10px;
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
 }
 
 #language-buttons button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
 }
 
 #language-buttons button:hover {
-    background-color: #E72E81;
+  background-color: #E72E81;
 }
 
 @media only screen and (max-width: 600px) {
-     /* Здесь можно определить стили для устройств с шириной экрана до 600px */
+}
+
+#contact-email {
+  margin-bottom: 20px; /* Добавьте отступ после поля ввода email'а */
+}
+
+#contact-message {
+  margin-bottom: 40px; /* Добавьте отступ после поля ввода сообщения */
 }

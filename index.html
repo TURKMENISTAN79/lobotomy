@@ -35,10 +35,28 @@
                 <li><a href="#" class="nav-button" id="about">Meist</a></li>
                 <li><a href="#" class="nav-button" id="MTG">Menüü</a></li>
                 <li><a href="#" class="nav-button" id="reviews">Arvustused</a></li>
+                <li><a href="#" class="nav-button" id="contact">Kontakt</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Верхний уровень -->
+    <section id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <form id="contact-form">
+                <h3 style="color: black" >Напишите нам</h3>
+                <input type="email" id="contact-email" placeholder="Введите ваш email" required>
+                <textarea id="contact-message" rows="4" placeholder="Напишите ваше сообщение"></textarea>
+                <button type="submit" id="send-message">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="thank-you-message" style="display: none;">
+        Спасибо за отправку письма!
+    </div>
+    
     <main>
         <br><br>
         <section id="inside" class="content">

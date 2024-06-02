@@ -11,171 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const bottomSection = document.getElementById("bottom");
     const searchInput = document.getElementById("s");
     const reviewsList = document.getElementById("reviews-list");
-    const reviewForm = document.getElementById("review-form");
     const reviewText = document.getElementById("review-text");
     const submitReview = document.getElementById("submit-review");
     const modal = document.getElementById("search-modal");
     const modalMessage = document.getElementById("modal-message");
     const closeModal = document.getElementsByClassName("close-button")[0];
-
-    generalButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        insideSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-    aboutButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        weOfferSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-    menuButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        menuSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-    reviewsButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        bottomSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-    scrollDownButton.addEventListener("click", function() {
-        bottomSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-    scrollUpButton.addEventListener("click", function() {
-        document.body.scrollIntoView({ behavior: "smooth" });
-    });
-
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let slides = document.getElementsByClassName("mySlides");
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3000); // Change image every 3 seconds
-    }
-
-    // Highlight search term and scroll to it
-    searchInput.addEventListener("input", function() {
-        let searchTerm = this.value.trim().toLowerCase();
-        if (searchTerm) {
-            highlightText(searchTerm);
-        } else {
-            removeHighlights();
-        }
-    });
-
-    searchInput.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            let searchTerm = this.value.trim().toLowerCase();
-            if (searchTerm) {
-                let found = highlightText(searchTerm);
-                if (found) {
-                    scrollToText(searchTerm);
-                } else {
-                    showModal("Ничего не найдено");
-                }
-            } else {
-                removeHighlights();
-            }
-        }
-    });
-
-    function highlightText(term) {
-        removeHighlights();
-        let paragraphs = document.querySelectorAll("p");
-        let found = false;
-        paragraphs.forEach(p => {
-            let innerHTML = p.innerHTML;
-            let index = innerHTML.toLowerCase().indexOf(term);
-            if (index !== -1) {
-                found = true;
-                p.innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + term.length) + "</span>" + innerHTML.substring(index + term.length);
-            }
-        });
-        return found;
-    }
-
-    function removeHighlights() {
-        let highlights = document.querySelectorAll(".highlight");
-        highlights.forEach(span => {
-            span.outerHTML = span.innerHTML;
-        });
-    }
-
-    function scrollToText(term) {
-        let highlightedElement = document.querySelector(".highlight");
-        if (highlightedElement) {
-            highlightedElement.scrollIntoView({ behavior: "smooth" });
-        }
-    }
-
-    function showModal(message) {
-        modalMessage.textContent = message;
-        modal.style.display = "block";
-    }
-
-    closeModal.addEventListener("click", function() {
-        modal.style.display = "none";
-    });
-
-    window.addEventListener("click", function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-
-    // Reviews functionality
-    submitReview.addEventListener("click", function() {
-        const review = reviewText.value.trim();
-        if (review) {
-            const reviewElement = document.createElement("div");
-            reviewElement.classList.add("review-item");
-
-            const reviewTextElement = document.createElement("p");
-            reviewTextElement.textContent = review;
-
-            const starsElement = document.createElement("div");
-            starsElement.classList.add("stars");
-            starsElement.textContent = "★★★★★"; // Default to 5 stars for new reviews
-
-            reviewElement.appendChild(reviewTextElement);
-            reviewElement.appendChild(starsElement);
-
-            reviewsList.appendChild(reviewElement);
-            reviewText.value = "";
-        }
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const generalButton = document.getElementById("General");
-    const aboutButton = document.getElementById("about");
-    const menuButton = document.getElementById("MTG");
-    const reviewsButton = document.getElementById("reviews");
-    const insideSection = document.getElementById("inside");
-    const weOfferSection = document.getElementById("we-offer");
-    const menuSection = document.getElementById("menu");
-    const scrollDownButton = document.getElementById("scroll-down");
-    const scrollUpButton = document.getElementById("scroll-up");
-    const bottomSection = document.getElementById("bottom");
-    const searchInput = document.getElementById("s");
-    const reviewsList = document.getElementById("reviews-list");
-    const reviewForm = document.getElementById("review-form");
-    const reviewText = document.getElementById("review-text");
-    const submitReview = document.getElementById("submit-review");
-    const modal = document.getElementById("search-modal");
-    const modalMessage = document.getElementById("modal-message");
-    const closeModal = document.getElementsByClassName("close-button")[0];
-
     const languageButtons = document.getElementById("language-buttons");
     const estonianButton = document.getElementById("et-btn");
     const russianButton = document.getElementById("ru-btn");
@@ -265,6 +105,129 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    // Function to scroll to sections smoothly
+    function scrollToSection(event, section) {
+        event.preventDefault();
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+
+    generalButton.addEventListener("click", (event) => scrollToSection(event, insideSection));
+    aboutButton.addEventListener("click", (event) => scrollToSection(event, weOfferSection));
+    menuButton.addEventListener("click", (event) => scrollToSection(event, menuSection));
+    reviewsButton.addEventListener("click", (event) => scrollToSection(event, bottomSection));
+    scrollDownButton.addEventListener("click", () => bottomSection.scrollIntoView({ behavior: "smooth" }));
+    scrollUpButton.addEventListener("click", () => document.body.scrollIntoView({ behavior: "smooth" }));
+
+    // Slide show functionality
+    let slideIndex = 0;
+    function showSlides() {
+        let slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+    showSlides();
+
+    // Search functionality
+    function highlightText(term) {
+        removeHighlights();
+        let paragraphs = document.querySelectorAll("p");
+        let found = false;
+        paragraphs.forEach(p => {
+            let innerHTML = p.innerHTML;
+            let index = innerHTML.toLowerCase().indexOf(term);
+            if (index !== -1) {
+                found = true;
+                p.innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + term.length) + "</span>" + innerHTML.substring(index + term.length);
+            }
+        });
+        return found;
+    }
+
+    function removeHighlights() {
+        let highlights = document.querySelectorAll(".highlight");
+        highlights.forEach(span => {
+            span.outerHTML = span.innerHTML;
+        });
+    }
+
+    function scrollToText() {
+        let highlightedElement = document.querySelector(".highlight");
+        if (highlightedElement) {
+            highlightedElement.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+
+    function showModal(message) {
+        modalMessage.textContent = message;
+        modal.style.display = "block";
+    }
+
+    searchInput.addEventListener("input", function() {
+        let searchTerm = this.value.trim().toLowerCase();
+        if (searchTerm) {
+            highlightText(searchTerm);
+        } else {
+            removeHighlights();
+        }
+    });
+
+    searchInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            let searchTerm = this.value.trim().toLowerCase();
+            if (searchTerm) {
+                let found = highlightText(searchTerm);
+                if (found) {
+                    scrollToText();
+                } else {
+                    showModal(translations.en.modalMessage);
+                }
+            } else {
+                removeHighlights();
+            }
+        }
+    });
+
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Reviews functionality
+    submitReview.addEventListener("click", function() {
+        const review = reviewText.value.trim();
+        if (review) {
+            const reviewElement = document.createElement("div");
+            reviewElement.classList.add("review-item");
+
+            const reviewTextElement = document.createElement("p");
+            reviewTextElement.textContent = review;
+
+            const starsElement = document.createElement("div");
+            starsElement.classList.add("stars");
+            starsElement.textContent = "★★★★★"; // Default to 5 stars for new reviews
+
+            reviewElement.appendChild(reviewTextElement);
+            reviewElement.appendChild(starsElement);
+
+            reviewsList.appendChild(reviewElement);
+            reviewText.value = "";
+        }
+    });
+
+    // Language switch functionality
     function switchLanguage(language) {
         document.getElementById("quote").textContent = translations[language].quote;
         document.getElementById("section-sees").textContent = translations[language].sees;
@@ -293,5 +256,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
     englishButton.addEventListener("click", function() {
         switchLanguage("en");
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const contactButton = document.getElementById("contact");
+    const contactModal = document.getElementById("contact-modal");
+    const closeModal = contactModal.querySelector(".close-button");
+    const contactForm = document.getElementById("contact-form");
+
+    // Открытие модального окна при клике на "Kontakt"
+    contactButton.addEventListener("click", function() {
+        contactModal.style.display = "block";
+    });
+
+    // Закрытие модального окна при клике на крестик
+    closeModal.addEventListener("click", function() {
+        contactModal.style.display = "none";
+    });
+
+    // Закрытие модального окна при клике за его пределами
+    window.addEventListener("click", function(event) {
+        if (event.target === contactModal) {
+            contactModal.style.display = "none";
+        }
+    });
+
+    // Обработка отправки формы
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        // Получение введенных значений
+        const email = document.getElementById("contact-email").value;
+        const message = document.getElementById("contact-message").value;
+        // Здесь можно добавить логику отправки данных на сервер или их обработки
+        console.log("Email:", email);
+        console.log("Message:", message);
+        // Закрытие модального окна после отправки
+        contactModal.style.display = "none";
+        // Очистка полей формы
+        contactForm.reset();
     });
 });
