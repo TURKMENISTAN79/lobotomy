@@ -105,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    // Function to scroll to sections smoothly
     function scrollToSection(event, section) {
         event.preventDefault();
         section.scrollIntoView({ behavior: "smooth" });
@@ -118,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function() {
     scrollDownButton.addEventListener("click", () => bottomSection.scrollIntoView({ behavior: "smooth" }));
     scrollUpButton.addEventListener("click", () => document.body.scrollIntoView({ behavior: "smooth" }));
 
-    // Slide show functionality
     let slideIndex = 0;
     function showSlides() {
         let slides = document.getElementsByClassName("mySlides");
@@ -130,11 +128,10 @@ document.addEventListener("DOMContentLoaded", function() {
             slideIndex = 1;
         }
         slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3000); // Change image every 3 seconds
+        setTimeout(showSlides, 3000);
     }
     showSlides();
 
-    // Search functionality
     function highlightText(term) {
         removeHighlights();
         let paragraphs = document.querySelectorAll("p");
@@ -205,7 +202,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Reviews functionality
     submitReview.addEventListener("click", function() {
         const review = reviewText.value.trim();
         if (review) {
@@ -217,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const starsElement = document.createElement("div");
             starsElement.classList.add("stars");
-            starsElement.textContent = "★★★★★"; // Default to 5 stars for new reviews
+            starsElement.textContent = "★★★★★"; 
 
             reviewElement.appendChild(reviewTextElement);
             reviewElement.appendChild(starsElement);
@@ -227,7 +223,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Language switch functionality
     function switchLanguage(language) {
         document.getElementById("quote").textContent = translations[language].quote;
         document.getElementById("section-sees").textContent = translations[language].sees;
@@ -265,35 +260,27 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeModal = contactModal.querySelector(".close-button");
     const contactForm = document.getElementById("contact-form");
 
-    // Открытие модального окна при клике на "Kontakt"
     contactButton.addEventListener("click", function() {
         contactModal.style.display = "block";
     });
 
-    // Закрытие модального окна при клике на крестик
     closeModal.addEventListener("click", function() {
         contactModal.style.display = "none";
     });
 
-    // Закрытие модального окна при клике за его пределами
     window.addEventListener("click", function(event) {
         if (event.target === contactModal) {
             contactModal.style.display = "none";
         }
     });
 
-    // Обработка отправки формы
     contactForm.addEventListener("submit", function(event) {
         event.preventDefault();
-        // Получение введенных значений
         const email = document.getElementById("contact-email").value;
         const message = document.getElementById("contact-message").value;
-        // Здесь можно добавить логику отправки данных на сервер или их обработки
         console.log("Email:", email);
         console.log("Message:", message);
-        // Закрытие модального окна после отправки
         contactModal.style.display = "none";
-        // Очистка полей формы
         contactForm.reset();
     });
 });
