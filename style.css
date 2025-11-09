@@ -372,9 +372,9 @@ footer {
 }
 
 #contact-email {
-  margin-bottom: 20px; /* Добавьте отступ после поля ввода email'а */
+  margin-bottom: 20px; 
 }
 
 #contact-message {
-  margin-bottom: 40px; /* Добавьте отступ после поля ввода сообщения */
+  margin-bottom: 40px;
 }
