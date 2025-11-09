@@ -98,18 +98,32 @@ p {
   display: flex;
   background-color: black;
   justify-content: center;
+  align-items: center;
+  height: 80px; 
 }
 
 #osn {
   display: flex;
-  list-style-type: none;
-  gap: 20px;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 #osn li a {
   color: white;
-  padding: 40px;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  height: 100%; 
+}
+
+#osn li a:hover {
+  color: #ff69b4;
 }
 
 nav .info ul #osn li {
@@ -255,15 +269,11 @@ footer {
 .menu-frame {
   border: 2px solid #FFC0CB;
   border-radius: 15px;
-  padding: 20px;
+  padding: 50px;
   max-width: 600px;
   margin: 20px auto;
   background-color: #E6E6FA;
   color: black;
-  text-align: center;
-}
-
-.menu-frame h2 {
   text-align: center;
 }
 
